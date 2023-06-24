@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK Automobile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style-type: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        #myVideo {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+
+        }
+
+        header {
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.474);
+            color: white;
+            position: relative;top:0;bottom: 0;
+            
+        }
+
+        nav {
+            width: 100%;
+            height: 10vh;
+            position: sticky;
+            top: 0px;
+            z-index: 3;
+            background-color: rgba(255, 68, 0, 0.957);
+        }
+
+        .logo {
+            float: left;
+            color: white;
+            font-size: 50px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            padding-left: 20px;
+            margin-bottom: 35px;
+
+        }
+
+        .navbar {
+              
+   width: 75%;height: 100%; float:right;    
+display: flex;justify-content: flex-end;
+align-items: center;
+}
+
+        .navbar>li {
+            display:block;
+            padding: 10px;
+            margin: 5px;
+                
+        }
+        .navbar>li>a {
+            
+            color: white;
+           
+            }
+
+        .navbar>li>.active {
+            color: rgb(242, 221, 221);
+            font-size: 20px;
+            font-weight: 600;
+             padding: 5px;
+             vertical-align: middle;
+            margin-bottom:2px;
+        }
+
+        .headcontent {
+            width: 70%;
+            height: 300px;
+            line-height: 1.8;
+            text-align: center;
+           position: absolute;
+           top:30%;left:18%;
+            /* padding: 15px 50% 0 50vw; */
+        }
+
+        .headcontent>h1 {
+            line-height: 1.3;
+            font-size: 34px;
+        }
+
+        .headcontent>h2::after,.headcontent>h2::before {
+            content: " ";
+            position: relative;
+            width: 100px;
+            height: -1px;
+            transform: translateY(2px);
+            vertical-align: middle;
+            display: inline-block;
+            margin-left: 15px;
+            text-decoration: overline;
+            border: 2px solid orangered;
+        }
+.content{
+    position: relative;}
+
+        .center_content {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 80%;height: 100px;
+            letter-spacing: 2.2px;
+            position: absolute;
+            top: 14%;
+            z-index: 2; 
+            background-color: orangered;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+
+        }
+
+        .center_content>i {
+
+            color: white;
+            margin-left: 10px;
+        }
+
+        #aboutus {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            padding: 25px;
+        }
+
+        #aboutus>.content1 {
+            width: 48%;
+
+        }
+
+        #aboutus>.content1>h2,
+        h1,
+        ul>li {
+            line-height: 1.8;
+        }
+
+        #aboutus>.content1>.list>ul {
+            display: inline-block;
+            margin: 10px 10% 0 10%;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        #aboutus>.content1>.list>button {
+            color: aliceblue;
+            background-color: orangered;
+            padding: 15px;
+            margin: 20px 5%;
+        }
+
+        #aboutus>.list {
+            width: 50%;
+        }
+
+        #aboutus>.image1 {
+            width: 50%;
+            padding-top: 50px;
+
+
+        }
+
+        #aboutus>.image1>.img1 {
+            width: 100%;
+            padding: 25px;
+            height: 250px;
+        }
+
+        #aboutus>.image1>.carosel {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            padding: 20px 0 20px 0;
+            width: 100%;
+        }
+
+        #aboutus>.image1>.carosel>.img2 {
+            width: 45%;
+            padding: 5px;
+        }
+
+        #aboutus>.image1>.carosel>.img3 {
+            width: 45%;
+            padding: 5px;
+
+        }
+
+        #centercontent2 {
+            width: 100%;
+            height: auto;
+            margin: 0;
+            background-image: url('/resource/closeupcar2.jpg');
+            background-color: rgba(0, 0, 0, 0.496);
+            background-blend-mode: darken;
+            background-size: 100% 100vh;
+            background-repeat: no-repeat;
+            background-position: top center;
+            background-attachment: fixed;
+        }
+
+        #centercontent2 .cnt1,
+        .cnt2,
+        .cnt3,
+        .cnt4 {
+            height: 150px;
+            width: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #centercontent2 .cnt1>.cntspan,
+        .cnt2>.cntspan,
+        .cnt3>.cntspan,
+        .cnt4>.cntspan {
+            color: white;
+            font-size: 14px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        #centercontent2 .c {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+
+        #centercontent2>.service {
+            width: 100%;
+            margin-top: 55px;
+            padding: 30px;
+            background-color: black;
+        }
+
+        #centercontent2>.service h1,
+        h2,
+        p {
+            color: white;
+            line-height: 2.5;
+        }
+
+        #centercontent2>.service {
+            background-color: rgb(41, 40, 40);
+            width: 100vw;
+            height: auto;
+        }
+        #centercontent2>.service >.ser1{
+            text-align: center;
+        }
+
+        #centercontent2>.service .ser_img {
+            width: 80%;
+            height: 300px;
+            margin: 12px auto 6px auto;
+            padding: 35px;
+            color: rgb(255, 255, 255);
+            display: flex;flex-direction: column;
+            align-items: flex-end;
+            
+        }
+        #centercontent2>.service .ser_img>i{
+            font-size:35px;padding:5px;color:orangered;
+        }
+        #centercontent2>.service .ser_img>p{line-height: 1.5;}
+        #centercontent2>.service .si1{
+            text-align: left;
+            background-image:linear-gradient(to right,rgba(0, 0, 0, 0.841) 30%,rgba(249, 249, 247, 0)), url('/resource/carpolishing.jpg');
+            background-position: center center;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-blend-mode: darken;
+            align-items: flex-start;
+                    }
+                    #centercontent2>.service .si1:hover {
+                        background-color: black;
+                        background-image: linear-gradient(black);
+                        transition: 0.5s all;
+                        transform: translatex(30px);
+                        box-shadow: 0 0 15px 1px orangered;
+                    }
+                    #centercontent2>.service .si2:hover {
+                        background-color: black;
+                        background-image: linear-gradient(black);
+                        transition: 0.5s all;
+                        transform: translatex(-30px);
+                        box-shadow: 0 0 15px 1px orangered;
+
+                    }
+                    #centercontent2>.service .si3:hover {
+                        background-color: black;
+                        background-image: linear-gradient(black);
+                        transition: 0.5s all ease-in-out;
+                        transform: translatex(30px);
+                        box-shadow: 0 0 15px 1px orangered;
+
+                    }
+        #centercontent2>.service .si2{
+            text-align: right;
+            background-image:linear-gradient(to left,rgba(0, 0, 0, 0.841) 30%,rgba(249, 249, 247, 0)), url('/resource/carpolishing2.jpg');
+            background-position: center center;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-blend-mode: darken;
+            align-items: flex-end;
+                    }
+         #centercontent2>.service .si3{
+            text-align: left;
+            background-image:linear-gradient(to right,rgba(0, 0, 0, 0.841) 30%,rgba(249, 249, 247, 0)), url('/resource/carpolishing.jpg');
+            background-position: center center;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-blend-mode: darken;
+            align-items: flex-start;
+                    }
+
+.service{
+    width: 100%;
+    height:150vh;
+    background-color: rgb(41, 40, 40);
+color: white;
+}
+.service>h1{
+    height:175px;
+}
+.service>h1:hover{
+    color: orangered;
+    transition: 0.5s all;
+}
+.service>.team{
+    display: flex;
+    flex-direction: row;
+    align-items: center;justify-content: space-evenly;
+    width: 100%;height: 100vh;
+    background-image:linear-gradient(to right,rgba(0, 0, 0, 0.383) 30%,rgba(249, 249, 247, 0)), url('/resource/metal_img.jpg.jpg');
+    background-blend-mode:luminosity;
+
+}
+.service>.team>.team_content{
+    width:30%;
+    height:80%;
+    margin:20px;
+    padding: 25px;
+    background-color: rgb(2, 2, 2);
+ 
+}
+.tc1>p{
+    line-height: 1.5;
+}
+.tc2{
+    background-image: url('/resource/car_painter1.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.tc3{
+    background-image: url('/resource/paint-spray-master-car-painting-automotive-industry.jpg');
+    background-position: -250px center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+.tc2,.tc3{
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;align-items: center;
+   
+}
+.tc2>.tc_content,.tc3>.tc_content{
+
+height:20%;width:100%;
+background-color: black;
+padding-top: 20px;
+text-align: center;
+}
+.tc2>.tc_content2,.tc3>.tc_content2{
+display: flex;flex-direction: row;
+background-color:rgba(0, 0, 0, 0.517);
+justify-content: center;align-items: center;
+height: 100%;width:100%;
+}
+.tc_content2,.tc_content2{
+    visibility: hidden;
+}
+.tc2:hover .tc_content2,.tc3:hover .tc_content2{
+    visibility: visible;
+    transition: 1s all;
+}
+.tc2>.tc_content2>i,.tc3>.tc_content2>i{
+
+padding:5%;font-size: 25px;
+}
+.contact_us{
+    width: 100%;height: 100vh;
+    position: relative;
+    background-color: black;
+}
+.contact_us>#myVideo1 {
+            width: 100%;
+            height: 100vh;
+            padding-top: 0;
+            object-fit: cover;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 1;
+
+        }
+
+.contact_us>.contact_content{
+    position: absolute;
+    width: 50%;
+    text-align: center;
+    color:white;
+    line-height: 0.4;
+            height: 60vh;
+            object-fit: cover;
+            position: absolute;
+            left: 20%;
+            right: 0;
+            top: 20%;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.492);
+            z-index: 2;
+         
+}
+.footer{
+    display: flex;
+    background-color: black;
+    color: white;
+    flex-direction: row;
+    justify-content: center;
+}
+.footer>div{
+    height: 100vh;width:20%;
+    padding:20px;line-height: 1.8;
+}
+.footer>.fd1{
+    width:30%;
+}
+.menu-line{
+    height:3px;
+    width:20px;
+    background-color: white;
+    margin-bottom: 3px;
+}
+.menu{
+    cursor: pointer;
+    display:none;
+}
+@media all and (max-width:640px){
+    nav{
+        display: flex;
+        flex-direction: column;
+    }
+    nav li{
+        display:block;padding:10px 0;
+    }
+    ul{
+        text-align:center;padding:0;
+    }
+    .logo{
+        align-self:flex-start;
+        margin: 10px 0px 0px 30px;
+    }
+    .menu{
+        display:block;
+        position: absolute;
+        right:20px;
+        top:25px;
+    }
+    .navbar{
+        display: none;
+        background-color: #ff4500;
+        color:white;
+        width:100%;height:50%;
+
+    }
+    .navbar li a{
+display:block;
+width:100%
+    }
+    .showmenu{
+        display: flex;
+
+      
+    }
+}
+ </style>
+</head>
+
+<body>
+    <div class="content">
+        <nav>
+            <div class="logo">MK</div>
+            <ul class="navbar">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#" style=" margin: 5;padding: 10px;">About us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+                <div class="burger">
+           
+            </ul>
+            <div class="menu">
+                <div class="menu-line"></div>
+                <div class="menu-line"></div>
+                <div class="menu-line"></div>
+            </div>
+       
+        </nav>
+        <header>
+            <video autoplay muted loop id="myVideo" plays-inline>
+                <source src="/resource/profesionalcarpaint.mp4" type="video/mp4">
+            </video>
+           
+            <div class="headcontent">
+                <h2>Welcome to MK-Automobiles</h2>
+                <h1>GET AN <span style="color:orangered">AWESOME COLOR</span> FOR YOUR VEHICLE</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam doloribus, blanditiis quibusdam,
+                    ab possimus nemo repudiandae nihil ex aliquid, doloremque molestiae? Ipsum eius fuga placeat!</p>
+            </div>
+       
+        </header>
+        <div class="center_content">
+            <i class="fa-solid fa-thumbs-up" style="padding-left: 10px;"> BEST PAINTING</i>
+            <i class="fa-solid fa-user-tie" style="padding-left: 10px;"> PROFESSIONAL TEAM</i>
+            <i class="fa-solid fa-certificate" style="padding-left: 10px;"> BEST QUALITY</i>
+        </div>
+        <section id="aboutus">
+            <div class="content1">
+                <h2>ABOUT US</h2>
+                <h1>WE ARE THE BEST VEHICLE PAINT SINCE 2011</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, dicta rerum. Impedit tempore nam
+                    tempora, sed ipsam nihil, cumque laboriosam alias repudiandae culpa eius, laudantium eum atque
+                    deleniti illo voluptatibus.</p>
+                <div class="list">
+                    <ul>
+                        <li>Best color quality</li>
+                        <li>Various color choices</li>
+                        <li>Various color techniques</li>
+                    </ul>
+                    <ul>
+                        <li>Best Materials</li>
+                        <li>Free consultations</li>
+                        <li>Official guarantee</li>
+                    </ul>
+                    <button type="button">MORE ABOUT US</button>
+                </div>
+            </div>
+            <div class="image1">
+
+                <img class="img1" src="/resource/carpolishing.jpg" alt="">
+
+                <div class="carosel">
+                    <img class="img2" src="/resource/carpolishing.jpg" alt="">
+                    <img class="img3" src="/resource/carpolishing.jpg" alt="">
+                </div>
+            </div>
+        </section>
+        <section id="centercontent2">
+            <div class="c">
+                <div class="cnt1 "><i class="fa-solid fa-handshake" style="color: #ff4500;font-size:35px;"></i><br><i
+                        class="fa-solid fa-plus"
+                        style="font-size: 35px;font-weight: 800;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color:white">125</i><br><span
+                        class="cntspan">Project Done</span> </div>
+                <div class="cnt2 "><i class="fa-regular fa-face-smile-wink"
+                        style="color: #ff4500;font-size:35px;"></i><br><i class="fa-solid fa-plus"
+                        style="font-size: 35px;font-weight: 800;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color:white">200</i><br><span
+                        class="cntspan">Customer Happy</span> </div>
+                <div class="cnt3 "><i class="fa-regular fa-thumbs-up" style="color: #ff4500;font-size:35px;"></i><br><i
+                        class="fa-solid fa-plus"
+                        style="font-size: 35px;font-weight: 800;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color:white">199</i><br><span
+                        class="cntspan">Service Guarantee</span> </div>
+                <div class="cnt4 "><i class="fa-solid fa-users" style="color: #ff4500;font-size:35px;"></i><br><i
+                        class="fa-solid fa-plus"
+                        style="font-size: 35px;font-weight: 800;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color:white">99</i><br><span
+                        class="cntspan">Team Experts</span> </div>
+            </div>
+            <div class="service" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                <div class="ser1">
+                <h2 style="text-decoration: underline;">OUR SERVICES</h2><br>
+                <h1 style="font-size: 35px;line-height:1;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">WE PROVIDE THE BEST SERVICES FOR YOUR VEHICLE</h1><br><br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere eum amet assumenda autem accusantium iure ducimus nihil quidem voluptatum velit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, ipsum magnam ea soluta pariatur et laborum quasi id laudantium inventore repudiandae nobis,
+                    ratione consectetur modi!</p>
+                <br>
+            </div>
+                <div class="ser_img si1">
+                    <i class="fa-solid fa-car" style="--fa-primary-color: #ff4500;"></i>
+                    <h2>CAR PAINTING</h2>
+                    <p style="width: 50%;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas dicta fugit, inventore id voluptatibus repellendus sed, earum animi magnam possimus atque officiis, assumenda minus dolor!
+                    </p>
+                    <br>
+                    <a href="#"> Learn More &rarr;</a>
+                </div>
+                <div class="ser_img si2">
+                    <i class="fa-solid fa-car" style="--fa-primary-color: #ff4500;"></i>
+                    <h2>COLLISION REPAIR</h2>
+                    <p style="width: 50%;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas dicta fugit, inventore id voluptatibus repellendus sed, earum animi magnam possimus atque officiis, assumenda minus dolor!
+                    </p><br>
+                    <a href="#">&larr; Learn More </a>
+                </div>
+                <div class="ser_img si3" style="text-align: right;">
+                    <i class="fa-solid fa-car" style="--fa-primary-color: #ff4500;"></i>
+                    <h2>CAR MODIFICATION</h2>
+                    <p style="width: 50%;text-align: left;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas dicta fugit, inventore id voluptatibus repellendus sed, earum animi magnam possimus atque officiis, assumenda minus dolor!
+                    </p><br>
+                    <a href="#"> Learn More &rarr; </a>
+                </div>
+            </div>
+        
+        </section>
+        <section class="service">
+            <h1 style="text-align: center;">SEE MORE SERVICES &rarr;</h1>
+          
+            <div class="team">
+                <div class="team_content tc1" style="padding: 15px;">
+                    <h2 style="text-decoration: underline;">OUR TEAM</h2>
+                    <h1 style="font-size:20px;line-height: 1;">MEET OUR PROFESSIONAL TEAM</h1>
+                    <br>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, tenetur sunt? Error, officia consequatur impedit aperiam pariatur corporis iusto autem nihil eaque voluptatibus optio quisquam sunt at? Est, veniam earum.</p>
+                    <button type="button" style="background-color:orangered;color:white;padding:10px;border: none; margin-top: 25px;">MORE TEAM</button>
+                </div>
+                <div class="team_content tc2">
+                    <div class="tc_content2">
+                        <i class="fa-brands fa-facebook" style="color: orangered;"></i>
+                        <i class="fa-brands fa-instagram " style="color: orangered;"></i>
+                        <i class="fa-brands fa-youtube" style="color: orangered;"></i>
+                    </div>
+                    <div class="tc_content">
+                        <h3>John</h3>
+                        <h4>CEO</h4>
+                    </div>
+                 
+                     
+                   
+                </div>
+                <div class="team_content tc3">
+                    <div class="tc_content2">
+                        <i class="fa-brands fa-facebook" style="color: orangered;"></i>
+                        <i class="fa-brands fa-instagram " style="color: orangered;"></i>
+                        <i class="fa-brands fa-youtube" style="color: orangered;"></i>
+                    </div>
+                    <div class="tc_content">
+                        <h3>Doe</h3>
+                        <h4>Painter</h4>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="contact_us">
+            
+                <video autoplay muted loop id="myVideo1" plays-inline>
+                    <source src="/resource/profesionalcarpaint.mp4" type="video/mp4">
+                </video>
+        
+        <div class="contact_content">
+            <h1 style="font-size: 25px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;line-height: 1.8;padding-top: 20px;">GET THE BEST COLOR FOR YOUR VEHICLE WITH PAINT MY RIDE</h1>
+            <p style="line-height:1.2;font-weight: 500;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium, dolor sint dolores eaque tempora esse ullam quo obcaecati, sequi commodi velit quod assumenda nobis possimus eius. Doloremque facere vero ipsum!</p>
+            <button type="button" style="color: white;background-color: orangered;padding: 20px;margin: 25px;">CONTACT US</button>
+        </div>
+        </section>
+        <section class="footer">
+            <div class="fd1">
+                <h1 style="font-size: 25px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-weight:800;text-align: center;">MK</h1>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat debitis suscipit similique nulla inventore. Atque facilis quis nesciunt autem saepe ducimus? Assumenda vero accusamus in!</p>
+                <div class="icon" style="font-size: 25px;text-align: center;">
+                <i class="fa-brands fa-facebook" style="color: orangered;"></i>
+                <i class="fa-brands fa-instagram " style="color: orangered;"></i>
+                <i class="fa-brands fa-youtube" style="color: orangered;"></i>
+            </div>
+            </div>
+            <div>
+                <h2>QUICK LINKS</h2>
+                <h4>About</h4>
+                <h4>Services</h4>
+                <h4>Blog</h4>
+                <h4>Contact</h4>
+                <h4>Pricing</h4>
+            </div>
+            <div>
+                <h2>SUPPORT</h2>
+                <h4>Privacy Policy</h4>
+                <h4>Support</h4>
+                <h4>Disclaimer</h4>
+                <h4>FAQ</h4>
+                <h4>Terms & Conditions</h4>
+            </div>
+            <div >
+                <h2>CONTACT</h2>
+                <h2 style="font-size: 18px;">PHONE <br> <span style="font-size:15px;color:gainsboro;">(+62)81 2345 1234</span></h2>
+            <h2 style="font-size: 18px;">EMAIL <br> <span style="font-size:15px;color:gainsboro;">(MK@gmail.com)</span></h2>
+            <h2 style="font-size: 18px;">LOCATION <br><span style="font-size:15px;color:gainsboro;">12th Road,CA,Tirupur-8</span></h2>
+        </div>
+        </section>
+        <div>
+            <hr>
+           <p style="text-align: center;background-color: black;color:white;font-size:12px;"> © 2023 All Rights Reserved, Canva®</p>
+        </div>
+    </div>
+
+  
+
+<script>
+   const menu= document.querySelector('.menu');
+   const menulist=document.querySelector('nav ul');
+   menu.addEventListener('click',()=>{
+    menulist.classList.toggle('showmenu')
+   })
+
+</script>
+</body>
+</html>
